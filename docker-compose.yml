@@ -1,0 +1,13 @@
+services:
+  kuriscribe:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: kuriscribe:latest
+    container_name: kuriscribe-app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - GROQ_API_KEY=${GROQ_API_KEY:-}

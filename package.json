@@ -1,0 +1,51 @@
+{
+  "name": "kuriscribe-web",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "bin": {
+    "kuriscribe": "./bin/kuriscribe.js"
+  },
+  "scripts": {
+    "dev": "concurrently -k -p \"[{name}]\" -n \"SERVER,CLIENT\" -c \"yellow.bold,cyan.bold\" \"uv run python server.py\" \"vite\"",
+    "dev:client": "vite",
+    "dev:server": "uv run python server.py",
+    "build": "tsc -b && vite build",
+    "build:backend": "uv run --with pyinstaller,flask,flask-cors,flask-limiter,youtube-transcript-api,yt-dlp,groq,deep-translator pyinstaller --noconfirm --clean --onefile --name \"server-x86_64-pc-windows-msvc\" --distpath \"src-tauri/bin\" --workpath \"build/pyinstaller\" server.py",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "docker:build": "docker build -t kuriscribe .",
+    "docker:run": "docker run -p 3000:3000 kuriscribe",
+    "tauri": "tauri",
+    "tauri:dev": "tauri dev",
+    "tauri:build": "pnpm build:backend && tauri build"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2.11.1",
+    "@tauri-apps/plugin-opener": "^2.5.4",
+    "clsx": "^2.1.1",
+    "file-saver": "^2.0.5",
+    "framer-motion": "^13.1.1",
+    "jszip": "^3.10.1",
+    "lucide-react": "^1.33.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "tailwind-merge": "^3.6.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@tauri-apps/cli": "^2.11.4",
+    "@types/file-saver": "^2.0.7",
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.4",
+    "autoprefixer": "^10.5.4",
+    "concurrently": "^10.0.5",
+    "oxlint": "^1.75.0",
+    "postcss": "^8.5.26",
+    "tailwindcss": "^4.3.3",
+    "typescript": "~6.0.2",
+    "vite": "^8.2.0"
+  }
+}

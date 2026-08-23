@@ -1,0 +1,56 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Node dependencies & builds
+node_modules
+dist
+dist-ssr
+*.local
+
+# Python & PyInstaller
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+env/
+build/
+*.spec
+
+# Tauri & Rust
+src-tauri/target/
+src-tauri/bin/*.exe
+!src-tauri/bin/.gitkeep
+
+# Audio/Video & ZIP artifacts
+*.mp3
+*.mp4
+*.m4a
+*.webm
+*.wav
+*.zip
+
+# System & Editor
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.gemini
+.env
+.env.*
+test_results.json
+skills-lock.json
+scratch/
+
